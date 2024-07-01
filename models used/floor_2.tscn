@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq5s74ikctwjm"]
+
+[ext_resource type="PackedScene" uid="uid://cjtccrj36uslg" path="res://Kenney's Space Station Kit Models GLB/floor.glb" id="1_4mq3e"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sj5no"]
+data = PackedVector3Array(-0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0.3, -0.5, -0.5, 0.3, -0.5, -0.5, 0.3, 0.5, -0.5, 0, 0.5, 0.5, 0.3, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0.3, 0.5, 0.5, 0.3, 0.5, 0.5, 0.3, 0.5, 0.5, 0.3, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0.3, 0.5, -0.5, 0.3, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.3, -0.5, -0.5, 0.3, -0.5, -0.5, 0.3, -0.5, 0.5, 0.3, -0.5, 0.5, 0.3, 0.5, 0.5, 0.3, 0.5, -0.5, 0.3, 0.5, -0.5, 0.3, -0.5)
+
+[node name="floor2" instance=ExtResource("1_4mq3e")]
+
+[node name="floor" parent="." index="0"]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_sj5no")
