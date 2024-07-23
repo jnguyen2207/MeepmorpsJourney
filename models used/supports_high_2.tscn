@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b804wdhubim6h"]
+
+[ext_resource type="PackedScene" uid="uid://cxlp7ilobdb4q" path="res://Kenney's Space Kit Models GLB/GLTF format/supports_high.glb" id="1_d2ety"]
+
+[node name="supports_high2" instance=ExtResource("1_d2ety")]
+
+[node name="supports_high" parent="tmpParent" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
