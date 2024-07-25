@@ -207,4 +207,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
 
 [node name="supports_high2" parent="." instance=ExtResource("14_e5tkb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53246, 0, 8.15751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53246, 0, 8.15751)
