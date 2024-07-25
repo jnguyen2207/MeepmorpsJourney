@@ -173,6 +173,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50283, -0.594053, 31.26)
 [node name="floor11" parent="enviroment" instance=ExtResource("9_cvh61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50283, -0.594053, 31.26)
 
+[node name="supports_high2" parent="enviroment" instance=ExtResource("14_e5tkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53246, 0, 8.15751)
+
 [node name="floor12" parent="enviroment" instance=ExtResource("9_cvh61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5028, -0.594053, 31.26)
 
@@ -205,6 +208,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
 
 [node name="wall-door-wide-banner2" parent="enviroment" instance=ExtResource("10_gniao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
-
-[node name="supports_high2" parent="." instance=ExtResource("14_e5tkb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53246, 0, 8.15751)
