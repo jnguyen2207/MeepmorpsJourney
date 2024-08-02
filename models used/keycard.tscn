@@ -1,23 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch67wyj04ccj2"]
+[gd_scene load_steps=4 format=3 uid="uid://cxwsc3fyab44c"]
 
 [ext_resource type="PackedScene" uid="uid://6ed5rtsckaix" path="res://keycard.fbx" id="1_gunws"]
 [ext_resource type="Script" path="res://keycard.gd" id="2_inxil"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3b5lj"]
-radius = 2.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_7qc87"]
 
 [node name="Root Scene" instance=ExtResource("1_gunws")]
-
-[node name="RootNode" parent="." index="0"]
 script = ExtResource("2_inxil")
 
 [node name="Cube" parent="RootNode" index="0"]
 transform = Transform3D(4.68253, 0, 0, 0, -6.28618e-06, 32.1466, 0, -52.7323, -3.83217e-06, 0, 0, 0)
 
 [node name="keycard" parent="RootNode" index="1"]
-transform = Transform3D(0.0256939, 1.43927e-07, 3.29266, 2.33965e-14, 3.29276, -1.43931e-07, -3.29266, 1.12314e-09, 0.0256939, 0.05799, 0, 0.0196)
+transform = Transform3D(0.0256939, 1.43927e-07, 3.29266, 2.33965e-14, 3.29276, -1.43931e-07, -3.29266, 1.12314e-09, 0.0256939, 0.0601704, 0, 0)
 
-[node name="keycard" type="Area3D" parent="." index="1"]
+[node name="Area3D" type="Area3D" parent="." index="1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="keycard" index="0"]
-shape = SubResource("SphereShape3D_3b5lj")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1.53697, 0, 0, 0, 1.53697, 0, 0, 0, 1.53697, 0, 0, 0)
+shape = SubResource("SphereShape3D_7qc87")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c10ln654qai8y"]
+[gd_scene load_steps=20 format=3 uid="uid://c10ln654qai8y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_gmsjb"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://o5ok5yfg0e4k" path="res://models used/wall_door_wide_banner_2.tscn" id="10_gniao"]
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="11_5a28u"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="12_0aery"]
-[ext_resource type="PackedScene" uid="uid://ch67wyj04ccj2" path="res://models used/keycard.tscn" id="13_1wlt7"]
 [ext_resource type="PackedScene" uid="uid://b804wdhubim6h" path="res://models used/supports_high_2.tscn" id="14_e5tkb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gtab6"]
@@ -62,6 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67611, 0)
 
 [node name="Camera3D" type="Camera3D" parent="player/head"]
 current = true
+fov = 92.5
 
 [node name="Area3D" type="Area3D" parent="player"]
 
@@ -174,7 +174,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50283, -0.594053, 31.26)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50283, -0.594053, 31.26)
 
 [node name="supports_high2" parent="enviroment" instance=ExtResource("14_e5tkb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53246, 0, 8.15751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83395, 0, 8.15751)
 
 [node name="floor12" parent="enviroment" instance=ExtResource("9_cvh61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5028, -0.594053, 31.26)
@@ -199,9 +199,6 @@ transform = Transform3D(-4.37114e-08, 0, 3.95, 0, 1.015, 0, -1, 0, -1.7266e-07, 
 
 [node name="corridor_wall3" parent="enviroment" instance=ExtResource("12_0aery")]
 transform = Transform3D(-4.37114e-08, 0, 3.95, 0, 1.015, 0, -1, 0, -1.7266e-07, -8.5, 3.5, 38.0644)
-
-[node name="keycard" parent="enviroment" instance=ExtResource("13_1wlt7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 
 [node name="floor17" parent="enviroment" instance=ExtResource("9_cvh61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
