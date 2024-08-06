@@ -5,7 +5,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsmdy"]
 resource_name = "Material.001"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_jly6h")
 metallic = 0.4
 roughness = 0.272166

@@ -6,7 +6,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsmdy"]
 resource_name = "Material.001"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_purrh")
 metallic = 0.4
 roughness = 0.272166
@@ -50,7 +49,6 @@ data = PackedVector3Array(-0.008, 0.0081, 0.0099, -0.008, 0.0081, 0.0068, -0.01,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfl7g"]
 resource_name = "keycard"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_0ff0c")
 metallic = 0.4
 roughness = 0.272166
