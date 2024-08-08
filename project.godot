@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Meep Morp's Journey"
+config/name="MeepMorp's Journey"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://keycardchecker.gd"
+AudioManager="*res://audioManager.gd"
 
 [display]
 
