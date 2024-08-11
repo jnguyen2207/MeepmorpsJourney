@@ -24,7 +24,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "player":
-		AudioManager.play("res://soundfx/clicksound.mp3")
+		AudioManager.play("res://soundfx/click.mp3")
 		Global.keycard_picked_up = true  # Mark keycard as picked up
 		emit_signal("picked_up")
 		queue_free()
