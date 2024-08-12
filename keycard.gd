@@ -24,8 +24,19 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "player":
+		#Plays sound fx
 		AudioManager.play("res://soundfx/click.mp3")
-		Global.keycard_picked_up = true  # Mark keycard as picked up
+		
+		#Tells the game that the kaycard has been picked up
+		Global.keycard_picked_up = true
+		
+		# Create a keycard instance in player's hand
+		var keycard_scene = preload("res://models used/keycard2.tscn")
+		var keycard_instance = keycard_scene.instantiate()
+		var hand = body.get_node("hand")  # Ensure the player has a "Hand" node
+		hand.add_child(keycard_instance)
+		
+		#emit signal and removes the original keycard
 		emit_signal("picked_up")
 		queue_free()
 		

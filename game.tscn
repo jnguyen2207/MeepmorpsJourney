@@ -70,6 +70,9 @@ fov = 92.5
 transform = Transform3D(1.65204, 0, 0, 0, 1, 0, 0, 0, 1.35061, 0, 1.04066, 0)
 shape = SubResource("CapsuleShape3D_7nn1i")
 
+[node name="hand" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03166, 1.14032, -1.25354)
+
 [node name="enviroment" type="Node3D" parent="."]
 
 [node name="terrain2" parent="enviroment" instance=ExtResource("2_mfq1y")]
