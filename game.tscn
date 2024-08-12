@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c10ln654qai8y"]
+[gd_scene load_steps=28 format=3 uid="uid://c10ln654qai8y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_gmsjb"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://o5ok5yfg0e4k" path="res://models used/wall_door_wide_banner_2.tscn" id="10_gniao"]
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="11_5a28u"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="12_0aery"]
+[ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="14_74xyl"]
 [ext_resource type="PackedScene" uid="uid://b804wdhubim6h" path="res://models used/supports_high_2.tscn" id="14_e5tkb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gtab6"]
@@ -34,13 +35,57 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7nn1i"]
 
+[sub_resource type="Gradient" id="Gradient_1a1fx"]
+offsets = PackedFloat32Array(0.290909, 0.827273)
+colors = PackedColorArray(0, 0, 0, 1, 0.985884, 0.661364, 0.565732, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_co3u3"]
+gradient = SubResource("Gradient_1a1fx")
+
+[sub_resource type="Curve" id="Curve_qlqqd"]
+_data = [Vector2(0, 0.307692), 0.0, 0.0, 0, 0, Vector2(0.268116, 1), 0.0, 0.0, 0, 0, Vector2(0.695652, 0.67033), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fphhq"]
+curve = SubResource("Curve_qlqqd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p31s5"]
+angle_max = 360.0
+direction = Vector3(1, 2, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angular_velocity_max = 40.0
+gravity = Vector3(0, 1000, 0)
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+scale_min = 12.05
+scale_max = 61.24
+scale_curve = SubResource("CurveTexture_fphhq")
+color_initial_ramp = SubResource("GradientTexture1D_co3u3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb0md"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.34902, 0.117647, 0.054902, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_dah4i"]
+material = SubResource("StandardMaterial3D_qb0md")
+
 [node name="game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u4xrp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.710834, -0.419524, 0.564548, -0.0173374, 0.79195, 0.61034, -0.703146, -0.443639, 0.555671, 24.8149, 22.94, 25.0352)
+transform = Transform3D(0.710834, -0.419524, 0.564548, -0.0173374, 0.79195, 0.61034, -0.703146, -0.443638, 0.555672, 24.8149, 22.94, 25.0352)
 shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
@@ -205,3 +250,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
 
 [node name="wall-door-wide-banner2" parent="enviroment" instance=ExtResource("10_gniao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
+
+[node name="meteor_detailed2" parent="." instance=ExtResource("14_74xyl")]
+transform = Transform3D(32.9982, 22.6079, 0, -22.6079, 32.9982, 0, 0, 0, 40, -89.6741, -12.3684, -74.118)
+
+[node name="Meteor Fire" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.51854, 0)
+
+[node name="Meteor Fire Vfx" type="GPUParticles3D" parent="Meteor Fire"]
+transform = Transform3D(0.717113, 0.658864, -0.22726, -0.648037, 0.750344, 0.130507, 0.25651, 0.0536841, 0.96505, -80.6814, -4.03879, -73.1707)
+amount = 75
+lifetime = 0.42
+speed_scale = 0.3
+randomness = 1.0
+visibility_aabb = AABB(-4, -3.45752, -4, 8, 8, 8)
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_p31s5")
+draw_pass_1 = SubResource("QuadMesh_dah4i")
