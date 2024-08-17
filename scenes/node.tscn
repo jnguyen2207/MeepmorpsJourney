@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://db6kqj3w1ykkk"]
 
-[ext_resource type="Script" path="res://keycardchecker.gd" id="1_58eu8"]
+[ext_resource type="Script" path="res://scripts/keycardchecker.gd" id="1_58eu8"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_58eu8")

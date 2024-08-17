@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://c10ln654qai8y"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_gmsjb"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_gmsjb"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
 [ext_resource type="PackedScene" uid="uid://dhx8dkxxgogay" path="res://models used/rock_crystals_large_b.tscn" id="3_m4k31"]
 [ext_resource type="PackedScene" uid="uid://dxhxe8kemb0ok" path="res://models used/alien.tscn" id="4_wtfka"]

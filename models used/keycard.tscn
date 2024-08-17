@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxwsc3fyab44c"]
 
-[ext_resource type="PackedScene" uid="uid://6ed5rtsckaix" path="res://keycard.fbx" id="1_gunws"]
+[ext_resource type="PackedScene" uid="uid://6ed5rtsckaix" path="res://models used/keycard.fbx" id="1_gunws"]
 [ext_resource type="Texture2D" uid="uid://xokxo2wps8bv" path="res://keycard-98202a50cc1ec0a167987661793dcbb2_96p0U7S4.png" id="2_jly6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsmdy"]
