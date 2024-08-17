@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c10ln654qai8y"]
+[gd_scene load_steps=20 format=3 uid="uid://c10ln654qai8y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_gmsjb"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="11_5a28u"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="12_0aery"]
 [ext_resource type="PackedScene" uid="uid://b804wdhubim6h" path="res://models used/supports_high_2.tscn" id="14_e5tkb"]
-[ext_resource type="Script" path="res://keycard.gd" id="14_j75tt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gtab6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -209,10 +208,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
 
 [node name="wall-door-wide-banner2" parent="enviroment" instance=ExtResource("10_gniao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
-
-[node name="keycard" type="Area3D" parent="enviroment"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -4.02499, 0.734016, 12.7046)
-script = ExtResource("14_j75tt")
-
-[connection signal="body_entered" from="enviroment/keycard" to="enviroment/keycard" method="_on_body_entered"]
-[connection signal="picked_up" from="enviroment/keycard" to="enviroment/keycard" method="_on_picked_up"]
