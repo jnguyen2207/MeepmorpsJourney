@@ -15,6 +15,11 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Global Scripts n Scenes/keycardchecker.gd"
+AudioManager="*res://Global Scripts n Scenes/audioManager.gd"
+
 [display]
 
 window/size/viewport_width=1920

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://6ed5rtsckaix"
-path="res://.godot/imported/keycard.fbx-98202a50cc1ec0a167987661793dcbb2.scn"
+path="res://.godot/imported/keycard.fbx-33d9f0167cd2ed54dbec40677afb311e.scn"
 
 [deps]
 
-source_file="res://keycard.fbx"
-dest_files=["res://.godot/imported/keycard.fbx-98202a50cc1ec0a167987661793dcbb2.scn"]
+source_file="res://blendermodels/keycard.fbx"
+dest_files=["res://.godot/imported/keycard.fbx-33d9f0167cd2ed54dbec40677afb311e.scn"]
 
 [params]
 
