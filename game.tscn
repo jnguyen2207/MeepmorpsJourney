@@ -43,7 +43,7 @@ transform = Transform3D(0.943014, 0.215829, -0.253263, -0.0173374, 0.79195, 0.61
 shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.655623, 0, 0, 0, 0.655623, 0, 0, 0, 0.655623, -9, 0.619483, 29.0103)
+transform = Transform3D(0.655623, 0, 0, 0, 0.655623, 0, 0, 0, 0.655623, -9, 0.00781739, 29.0103)
 script = ExtResource("1_gmsjb")
 metadata/_edit_group_ = true
 
@@ -201,7 +201,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1.61299, 0, 0, 0, 1.61299, 0, 0, 0, 1.61299, -8.6944, 1, 26)
+transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -8.6944, 1, 26)
 
 [node name="key" parent="Node3D" instance=ExtResource("14_7qf4f")]
 transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, 0, 0, 0)
