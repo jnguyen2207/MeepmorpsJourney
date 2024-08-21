@@ -9,7 +9,7 @@ var bobbing_height = 0.25
 var initial_position
 
 # Rotation speed
-var rotation_speed = Vector3(0, 10, 0)  # Rotating around the Y-axis
+var rotation_speed = Vector3(0, 1, 0)  # Rotating around the Y-axis
 
 func _ready():
 	initial_position = global_transform.origin
@@ -37,5 +37,3 @@ func _on_body_entered(body):
 
 func _on_picked_up():
 	pass # Replace with function body.
-
-

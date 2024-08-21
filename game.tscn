@@ -59,6 +59,7 @@ shape = SubResource("ConvexPolygonShape3D_xqvyt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67611, 0)
 
 [node name="Camera3D" type="Camera3D" parent="player/head"]
+transform = Transform3D(1.52527, 0, 0, 0, 1.52527, 0, 0, 0, 1.52527, 0, 0, -0.787209)
 current = true
 fov = 92.5
 
@@ -199,5 +200,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5028, -0.594053, 35.26)
 [node name="wall-door-wide-banner2" parent="enviroment" instance=ExtResource("10_gniao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
 
-[node name="key" parent="." instance=ExtResource("14_7qf4f")]
-transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, -9, 0.40259, 5)
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1.61299, 0, 0, 0, 1.61299, 0, 0, 0, 1.61299, -8.6944, 1, 26)
+
+[node name="key" parent="Node3D" instance=ExtResource("14_7qf4f")]
+transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, 0, 0, 0)
