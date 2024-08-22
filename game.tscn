@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_gmsjb"]
 [ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_gtuxh"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_gmsjb"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
 [ext_resource type="PackedScene" uid="uid://dhx8dkxxgogay" path="res://models used/rock_crystals_large_b.tscn" id="3_m4k31"]
 [ext_resource type="PackedScene" uid="uid://dxhxe8kemb0ok" path="res://models used/alien.tscn" id="4_wtfka"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="11_5a28u"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="12_0aery"]
 [ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="14_74xyl"]
+[ext_resource type="PackedScene" uid="uid://cmpusgs6psw8k" path="res://models used/key.tscn" id="14_7qf4f"]
 [ext_resource type="PackedScene" uid="uid://b804wdhubim6h" path="res://models used/supports_high_2.tscn" id="14_e5tkb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njnp3"]
@@ -434,11 +436,12 @@ environment = SubResource("Environment_u4xrp")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.580442, 0.807082, -0.10819, 0.764659, -0.494544, 0.413186, 0.279971, -0.322559, -0.904197, -8.52976, 22.5185, 8.73453)
 light_energy = 1.646
+transform = Transform3D(0.943014, 0.215829, -0.253263, -0.0173374, 0.79195, 0.61034, 0.332301, -0.571168, 0.750562, -7.77796, 22.94, 25.0352)
 shadow_enabled = true
 shadow_opacity = 0.17
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.655623, 0, 0, 0, 0.655623, 0, 0, 0, 0.655623, -9, 0.619483, 29.0103)
+transform = Transform3D(0.655623, 0, 0, 0, 0.655623, 0, 0, 0, 0.655623, -9, 0.00781739, 29.0103)
 script = ExtResource("1_gmsjb")
 metadata/_edit_group_ = true
 
@@ -454,14 +457,9 @@ shape = SubResource("ConvexPolygonShape3D_xqvyt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67611, 0)
 
 [node name="Camera3D" type="Camera3D" parent="player/head"]
+transform = Transform3D(1.52527, 0, 0, 0, 1.52527, 0, 0, 0, 1.52527, 0, 0, -0.787209)
 current = true
 fov = 92.5
-
-[node name="Area3D" type="Area3D" parent="player"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player/Area3D"]
-transform = Transform3D(1.65204, 0, 0, 0, 1, 0, 0, 0, 1.35061, 0, 1.04066, 0)
-shape = SubResource("CapsuleShape3D_7nn1i")
 
 [node name="enviroment" type="Node3D" parent="."]
 
@@ -676,3 +674,8 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="satelliteDish_detailed2/rocks_smallA3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7lmfo")
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -8.6944, 1, 26)
+
+[node name="key" parent="Node3D" instance=ExtResource("14_7qf4f")]
+transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, 0, 0, 0)
