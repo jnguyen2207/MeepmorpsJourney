@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://c10ln654qai8y"]
+[gd_scene load_steps=21 format=3 uid="uid://c10ln654qai8y"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gmsjb"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="2_myobv"]
 [ext_resource type="PackedScene" uid="uid://dhx8dkxxgogay" path="res://models used/rock_crystals_large_b.tscn" id="3_m4k31"]
 [ext_resource type="PackedScene" uid="uid://dxhxe8kemb0ok" path="res://models used/alien.tscn" id="4_wtfka"]
 [ext_resource type="PackedScene" uid="uid://c4ddxb0mjnk1p" path="res://models used/rock.tscn" id="5_1rrcd"]
@@ -62,6 +63,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67611, 0)
 transform = Transform3D(1.52527, 0, 0, 0, 1.52527, 0, 0, 0, 1.52527, 0, 0, -0.787209)
 current = true
 fov = 92.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="player/head/Camera3D"]
+script = ExtResource("2_myobv")
+
+[node name="KeycardIcon" type="Label" parent="player/head/Camera3D/CanvasLayer"]
+visible = false
+offset_left = 11.0001
+offset_top = 806.0
+offset_right = 143.0
+offset_bottom = 829.0
+scale = Vector2(3.60007, 3.83796)
+text = "Keycard Aquired!"
+
+[node name="Timer" type="Timer" parent="player/head/Camera3D/CanvasLayer"]
+wait_time = 3.0
 
 [node name="enviroment" type="Node3D" parent="."]
 
@@ -205,3 +221,6 @@ transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -8.6944, 1,
 
 [node name="key" parent="Node3D" instance=ExtResource("14_7qf4f")]
 transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, 0, 0, 0)
+
+[connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_timer_timeout"]
+[connection signal="picked_up" from="Node3D/key" to="player/head/Camera3D/CanvasLayer" method="_on_picked_up"]
