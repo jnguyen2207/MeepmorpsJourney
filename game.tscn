@@ -220,7 +220,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 20.655)
 transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -8.6944, 1, 26)
 
 [node name="key" parent="Node3D" instance=ExtResource("14_7qf4f")]
-transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, 0, 0, 0)
+transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.341, 1.837, -0.260135, -9.91253)
 
 [connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_timer_timeout"]
 [connection signal="picked_up" from="Node3D/key" to="player/head/Camera3D/CanvasLayer" method="_on_picked_up"]
