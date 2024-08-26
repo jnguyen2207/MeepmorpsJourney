@@ -1,8 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://c10ln654qai8y"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_gmsjb"]
-[ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_gtuxh"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gmsjb"]
+[ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_gtuxh"]
 [ext_resource type="PackedScene" uid="uid://d0d6tybvjgypp" path="res://models used/terrain.tscn" id="2_mfq1y"]
 [ext_resource type="PackedScene" uid="uid://dhx8dkxxgogay" path="res://models used/rock_crystals_large_b.tscn" id="3_m4k31"]
 [ext_resource type="PackedScene" uid="uid://dxhxe8kemb0ok" path="res://models used/alien.tscn" id="4_wtfka"]
@@ -14,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://o5ok5yfg0e4k" path="res://models used/wall_door_wide_banner_2.tscn" id="10_gniao"]
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="11_5a28u"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="12_0aery"]
-[ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="14_74xyl"]
 [ext_resource type="PackedScene" uid="uid://cmpusgs6psw8k" path="res://models used/key.tscn" id="14_7qf4f"]
+[ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="14_74xyl"]
 [ext_resource type="PackedScene" uid="uid://b804wdhubim6h" path="res://models used/supports_high_2.tscn" id="14_e5tkb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njnp3"]
@@ -39,8 +38,6 @@ adjustment_saturation = 1.93
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xqvyt"]
 points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7nn1i"]
 
 [sub_resource type="Gradient" id="Gradient_1a1fx"]
 offsets = PackedFloat32Array(0.290909, 0.827273)
@@ -434,9 +431,8 @@ data = PackedVector3Array(0.3084, 0.1051, 0.3582, 0.2721, 0.1051, 0.265, 0.3653,
 environment = SubResource("Environment_u4xrp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.580442, 0.807082, -0.10819, 0.764659, -0.494544, 0.413186, 0.279971, -0.322559, -0.904197, -8.52976, 22.5185, 8.73453)
-light_energy = 1.646
 transform = Transform3D(0.943014, 0.215829, -0.253263, -0.0173374, 0.79195, 0.61034, 0.332301, -0.571168, 0.750562, -7.77796, 22.94, 25.0352)
+light_energy = 1.646
 shadow_enabled = true
 shadow_opacity = 0.17
 
@@ -674,6 +670,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="satelliteDish_detailed2/rocks_smallA3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7lmfo")
+
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -8.6944, 1, 26)
 
