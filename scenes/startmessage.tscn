@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://csqnipdt8ckwr"]
+
+[ext_resource type="Script" path="res://scripts/startmessage.gd" id="1_f0sd5"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_f0sd5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 670.0
+offset_top = 316.0
+offset_right = 896.0
+offset_bottom = 443.0
+scale = Vector2(2.57919, 2.77572)
+text = "If your mouse didn't lock, 
+restart the game and click 
+on it as it's loading
+
+sorry we're still trying to fix it"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
