@@ -5,7 +5,7 @@ var dragging: bool = false
 var offset: Vector2 = Vector2.ZERO
 
 func _ready():
-	self.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Make sure we can receive mouse events
+	self.mouse_filter = Control.MOUSE_FILTER_PASS  # Ensure the TextureRect can receive mouse events
 
 func _input(event: InputEvent):
 	if is_draggable:
@@ -14,7 +14,7 @@ func _input(event: InputEvent):
 				if event.pressed:
 					if self.get_rect().has_point(event.position):
 						dragging = true
-						offset = event.position - self.rect_position
+						offset = event.position - self.position
 				else:
 					dragging = false
 		elif event is InputEventMouseMotion and dragging:
