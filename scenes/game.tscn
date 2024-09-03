@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c10ln654qai8y"]
+[gd_scene load_steps=59 format=3 uid="uid://c10ln654qai8y"]
 
 [ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_f2nt5"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_45fhe"]
@@ -17,7 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://o5ok5yfg0e4k" path="res://models used/wall_door_wide_banner_2.tscn" id="15_l7olw"]
 [ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="16_g20bk"]
 [ext_resource type="PackedScene" uid="uid://cmpusgs6psw8k" path="res://models used/key.tscn" id="17_r8bll"]
-[ext_resource type="Script" path="res://scenes/repairmachine.gd" id="18_ak2f2"]
+[ext_resource type="Script" path="res://scripts/repairmachine.gd" id="18_ak2f2"]
+[ext_resource type="Script" path="res://scripts/Control.gd" id="19_o8ccj"]
+[ext_resource type="Texture2D" uid="uid://bxc33q2a4y8wi" path="res://blendermodels/sprites/Hyperion Left.png" id="20_erdej"]
+[ext_resource type="Script" path="res://scenes/piece1.gd" id="21_38fv3"]
+[ext_resource type="Texture2D" uid="uid://k0s6dkkqjj14" path="res://blendermodels/sprites/Hyperion Right.png" id="21_gww2m"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njnp3"]
 panorama = ExtResource("1_f2nt5")
@@ -432,6 +436,11 @@ data = PackedVector3Array(0.3084, 0.1051, 0.3582, 0.2721, 0.1051, 0.265, 0.3653,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_prb51"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="GDScript" id="GDScript_v1efc"]
+script/source = "extends CanvasLayer
+
+@export var repair_menu: CanvasLayer"
+
 [node name="game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -709,8 +718,10 @@ transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, -1.17773, 0, 19
 [node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.504323, 24)
 
-[node name="repairmachine" type="Area3D" parent="Node3D2"]
+[node name="repairmachine" type="Area3D" parent="Node3D2" node_paths=PackedStringArray("repair_menu")]
 script = ExtResource("18_ak2f2")
+repair_menu = NodePath("../../CanvasLayer")
+player_path = NodePath("../../player")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/repairmachine"]
 mesh = SubResource("BoxMesh_yra6f")
@@ -719,20 +730,33 @@ mesh = SubResource("BoxMesh_yra6f")
 shape = SubResource("ConcavePolygonShape3D_prb51")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = SubResource("GDScript_v1efc")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("19_o8ccj")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="piece1" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 340.0
+offset_right = 696.0
+offset_bottom = 715.0
+texture = ExtResource("20_erdej")
+script = ExtResource("21_38fv3")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="piece2" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1220.0
+offset_top = 210.0
+offset_right = 1551.0
+offset_bottom = 722.0
+texture = ExtResource("21_gww2m")
 
 [connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_Timer_timeout"]
 [connection signal="picked_up" from="Node3D/key" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]
+[connection signal="body_entered" from="Node3D2/repairmachine" to="Node3D2/repairmachine" method="_on_body_entered"]
