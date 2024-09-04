@@ -8,7 +8,7 @@ func _ready():
 	player = get_node(player_path)
 
 func _on_body_entered(body: Node):
-	if body.name == "Player":  # Ensure you're detecting the player
+	if body.name == "player":  # Ensure you're detecting the player
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Unlock the mouse and show the cursor
 		repair_menu.visible = true  # Show the repair menu
 		player.can_move = false  # Block player movement
