@@ -4,8 +4,10 @@ extends TextureRect
 var dragging: bool = false
 var offset: Vector2 = Vector2.ZERO
 
+signal piece_connected  # Signal emitted when the pieces connect
+
 func _ready():
-	self.mouse_filter = Control.MOUSE_FILTER_PASS  # Ensure the TextureRect can receive mouse events
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Make sure we can receive mouse events
 
 func _input(event: InputEvent):
 	if is_draggable:
@@ -19,3 +21,9 @@ func _input(event: InputEvent):
 					dragging = false
 		elif event is InputEventMouseMotion and dragging:
 			position = event.position - offset
+			check_for_other_piece()  # Check for collision
+
+func check_for_other_piece():
+	var other_piece = get_node("../piece1")  # Adjust the path to the other piece
+	if self.get_rect().intersects(other_piece.get_rect()):
+		emit_signal("piece_connected")  # Emit signal when they connect

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c10ln654qai8y"]
+[gd_scene load_steps=60 format=3 uid="uid://c10ln654qai8y"]
 
 [ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_f2nt5"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_45fhe"]
@@ -20,7 +20,9 @@
 [ext_resource type="Script" path="res://scripts/repairmachine.gd" id="18_ak2f2"]
 [ext_resource type="Script" path="res://scripts/Control.gd" id="19_o8ccj"]
 [ext_resource type="Texture2D" uid="uid://cvltbkn6y2saa" path="res://keycard pieces/keycard left broken.png" id="20_ewlcd"]
+[ext_resource type="Script" path="res://scenes/piece1.gd" id="21_38fv3"]
 [ext_resource type="Texture2D" uid="uid://d4bb0augdeafb" path="res://keycard pieces/keycard right broken.png" id="22_lkexc"]
+[ext_resource type="Script" path="res://scenes/piece2.gd" id="23_opvfb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njnp3"]
 panorama = ExtResource("1_f2nt5")
@@ -742,21 +744,26 @@ offset_bottom = 40.0
 script = ExtResource("19_o8ccj")
 
 [node name="piece1" type="TextureRect" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 88.0
-offset_right = 812.0
-offset_bottom = 861.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.275
+anchor_top = 2.975
+anchor_right = 25.05
+anchor_bottom = 22.3
 texture = ExtResource("20_ewlcd")
+script = ExtResource("21_38fv3")
+metadata/_edit_use_anchors_ = true
 
-[node name="piece 2" type="TextureRect" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 902.0
-offset_top = 88.0
-offset_right = 1832.0
-offset_bottom = 866.0
-pivot_offset = Vector2(622, 389)
+[node name="piece2" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.95
+anchor_top = 3.075
+anchor_right = 42.5
+anchor_bottom = 22.375
 texture = ExtResource("22_lkexc")
+script = ExtResource("23_opvfb")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_Timer_timeout"]
 [connection signal="picked_up" from="Node3D/key" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]
