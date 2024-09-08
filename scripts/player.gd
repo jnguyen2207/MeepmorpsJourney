@@ -76,3 +76,8 @@ func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	return pos
+
+func set_player_movement_enabled(enabled: bool):
+	self.set_physics_process(enabled)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if enabled else Input.MOUSE_MODE_VISIBLE)
+
