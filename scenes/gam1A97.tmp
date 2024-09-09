@@ -708,11 +708,12 @@ transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -11.694, 1,
 [node name="key2" parent="key" instance=ExtResource("17_r8bll")]
 transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, 0, 0, 0)
 
-[node name="keycardactivationmachine" type="Area3D" parent="." node_paths=PackedStringArray("activation_menu")]
+[node name="keycardactivationmachine" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 12)
 script = ExtResource("18_jsvov")
-activation_menu = NodePath("activation_menu")
 player_path = NodePath("../player")
+activationmenu = Object(CanvasLayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","layer":1,"visible":false,"offset":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"transform":Transform2D(1, 0, 0, 1, 0, 0),"follow_viewport_enabled":false,"follow_viewport_scale":1.0,"script":ExtResource("19_8naec"))
+
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="keycardactivationmachine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

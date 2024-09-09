@@ -708,11 +708,12 @@ transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -11.694, 1,
 [node name="key2" parent="key" instance=ExtResource("17_r8bll")]
 transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, 0, 0, 0)
 
-[node name="keycardactivationmachine" type="Area3D" parent="." node_paths=PackedStringArray("activation_menu")]
+[node name="keycardactivationmachine" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 12)
 script = ExtResource("18_jsvov")
-activation_menu = NodePath("activation_menu")
 player_path = NodePath("../player")
+activationmenu = Object(CanvasLayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","layer":1,"visible":false,"offset":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"transform":Transform2D(1, 0, 0, 1, 0, 0),"follow_viewport_enabled":false,"follow_viewport_scale":1.0,"script":ExtResource("19_8naec"))
+
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="keycardactivationmachine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -722,16 +723,16 @@ mesh = SubResource("BoxMesh_0dodc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4n2fd")
 
-[node name="activation_menu" type="CanvasLayer" parent="keycardactivationmachine"]
+[node name="Menu" type="CanvasLayer" parent="keycardactivationmachine"]
 visible = false
 script = ExtResource("19_8naec")
 
-[node name="Buttons" type="Panel" parent="keycardactivationmachine/activation_menu"]
+[node name="Panel" type="Panel" parent="keycardactivationmachine/Menu"]
 z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Button1" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
+[node name="Button1" type="Button" parent="keycardactivationmachine/Menu/Panel"]
 top_level = true
 layout_mode = 0
 offset_left = 1577.0
@@ -740,7 +741,7 @@ offset_right = 1681.0
 offset_bottom = 299.0
 icon = ExtResource("20_0g28n")
 
-[node name="Button2" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
+[node name="Button2" type="Button" parent="keycardactivationmachine/Menu/Panel"]
 top_level = true
 layout_mode = 0
 offset_left = 1578.0
@@ -749,7 +750,7 @@ offset_right = 1682.0
 offset_bottom = 389.0
 icon = ExtResource("20_0g28n")
 
-[node name="Button3" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
+[node name="Button3" type="Button" parent="keycardactivationmachine/Menu/Panel"]
 top_level = true
 layout_mode = 0
 offset_left = 1579.0
@@ -758,7 +759,7 @@ offset_right = 1683.0
 offset_bottom = 492.0
 icon = ExtResource("20_0g28n")
 
-[node name="Button4" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
+[node name="Button4" type="Button" parent="keycardactivationmachine/Menu/Panel"]
 top_level = true
 layout_mode = 0
 offset_left = 1578.0
@@ -767,7 +768,7 @@ offset_right = 1682.0
 offset_bottom = 586.0
 icon = ExtResource("20_0g28n")
 
-[node name="Button5" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
+[node name="Button5" type="Button" parent="keycardactivationmachine/Menu/Panel"]
 top_level = true
 layout_mode = 0
 offset_left = 1577.0
@@ -776,7 +777,7 @@ offset_right = 1681.0
 offset_bottom = 676.0
 icon = ExtResource("20_0g28n")
 
-[node name="Sprite2D" type="Sprite2D" parent="keycardactivationmachine/activation_menu/Buttons"]
+[node name="Sprite2D" type="Sprite2D" parent="keycardactivationmachine/Menu/Panel"]
 position = Vector2(1006, 507)
 scale = Vector2(1.53934, 1.5934)
 texture = ExtResource("21_wkcw0")
@@ -784,8 +785,8 @@ texture = ExtResource("21_wkcw0")
 [connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_Timer_timeout"]
 [connection signal="picked_up" from="key/key2" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]
 [connection signal="body_entered" from="keycardactivationmachine" to="keycardactivationmachine" method="_on_body_entered"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button1" to="keycardactivationmachine/activation_menu" method="_on_Button1_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button2" to="keycardactivationmachine/activation_menu" method="_on_Button2_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button3" to="keycardactivationmachine/activation_menu" method="_on_Button3_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button4" to="keycardactivationmachine/activation_menu" method="_on_Button4_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button5" to="keycardactivationmachine/activation_menu" method="_on_Button5_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/Menu/Panel/Button1" to="keycardactivationmachine/Menu" method="_on_Button1_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/Menu/Panel/Button2" to="keycardactivationmachine/Menu" method="_on_Button2_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/Menu/Panel/Button3" to="keycardactivationmachine/Menu" method="_on_Button3_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/Menu/Panel/Button4" to="keycardactivationmachine/Menu" method="_on_Button4_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/Menu/Panel/Button5" to="keycardactivationmachine/Menu" method="_on_Button5_pressed"]

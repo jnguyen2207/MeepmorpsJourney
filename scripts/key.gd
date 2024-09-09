@@ -40,4 +40,7 @@ func _on_body_entered(body):
 		
 
 func _on_picked_up():
-	pass # Replace with function body.
+	activate_keycard()
+
+func activate_keycard():
+	emit_signal("keycard_activated")

@@ -4,19 +4,29 @@ extends Area3D
 @export var player_path: NodePath
 var player: Node3D
 
+func check_activation_complete() -> bool:
+	# Example logic to check if all buttons have been pressed
+	for button in activation_menu.get_node("Buttons").get_children():
+		if button is Button and not button.pressed:
+			return false
+	return true
+
 func _ready():
 	player = get_node(player_path)
 	if activation_menu != null:
 		for button in activation_menu.get_node("Buttons").get_children():
 			if button is Button:
-				button.connect("pressed", self, "_on_button_pressed")
+				button.connect("pressed", Callable(self, "_on_button_pressed"))
 	# Assume keycard script is at a known path or instance
-	var keycard = get_node("key/key2")  # Adjust the path as necessary
-	keycard.connect("keycard_activated", self, "_exit_activation_menu")
+	var keycard = get_node("key/key2")
+	if keycard != null:
+		keycard.connect("keycard_activated", Callable(self, "_exit_activation_menu"))
+	else:
+		print("Keycard node not found!")
 
 func _on_button_pressed():
 	# Check if all buttons have been pressed or perform any action
-	if check_if_all_buttons_pressed():
+	if check_activation_complete():
 		_exit_activation_menu()
 
 func _exit_activation_menu():
