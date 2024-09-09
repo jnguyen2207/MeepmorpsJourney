@@ -3,6 +3,8 @@ extends Area3D
 # Signal to notify when the keycard is picked up
 signal picked_up
 
+signal keycard_activated
+
 # Variables to control the bobbing motion
 var bobbing_speed = 3.5
 var bobbing_height = 0.25
@@ -12,6 +14,8 @@ var initial_position
 var rotation_speed = Vector3(0, 1, 0)  # Rotating around the Y-axis
 
 func _ready():
+	# Emit the signal when the keycard is activated
+	emit_signal("keycard_activated")
 	initial_position = global_transform.origin
 	if Global.keycard_picked_up:
 		queue_free()  # The keycard was already picked up, so remove it
