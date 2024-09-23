@@ -717,7 +717,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4n2fd")
 
 [node name="activation_menu" type="CanvasLayer" parent="keycardactivationmachine"]
-visible = false
 script = ExtResource("18_fwt44")
 
 [node name="Buttons" type="Panel" parent="keycardactivationmachine/activation_menu"]

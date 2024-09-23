@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmpusgs6psw8k"]
+[gd_scene load_steps=5 format=3 uid="uid://bfxlacwwmdfw2"]
 
 [ext_resource type="Script" path="res://scripts/key.gd" id="1_8kprv"]
-[ext_resource type="AudioStream" uid="uid://comhkasqc0dsb" path="res://soundfx/click.mp3" id="2_5kroq"]
+[ext_resource type="AudioStream" uid="uid://cxtlf43y30ech" path="res://soundfx/click.mp3" id="2_5kroq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_agklc"]
 

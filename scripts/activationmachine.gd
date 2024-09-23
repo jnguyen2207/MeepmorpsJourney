@@ -13,6 +13,13 @@ func _on_button_pressed():
 	else:
 		print("The method 'check_activation_complete' is not found in activation_menu.")
 
+# Exit the activation menu when all buttons are pressed
+func _exit_activation_menu():
+	if activation_menu:
+		activation_menu.visible = false
+		get_tree().paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 # Ready function to set up initial settings
 func _ready():
 	player = get_node(player_path)
@@ -28,10 +35,3 @@ func _ready():
 		keycard.connect("keycard_activated", Callable(self, "_exit_activation_menu"))
 	else:
 		print("Keycard node or method 'keycard_activated' not found.")
-
-# Exit the activation menu when all buttons are pressed
-func _exit_activation_menu():
-	if activation_menu:
-		activation_menu.visible = false
-		get_tree().paused = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
