@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dy2vsxnqgsoeg"]
+[gd_scene load_steps=57 format=3 uid="uid://0dogdnxv1lt4"]
 
 [ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_f2nt5"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_45fhe"]
@@ -15,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="13_nlbev"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="14_3u6n0"]
 [ext_resource type="PackedScene" uid="uid://o5ok5yfg0e4k" path="res://models used/wall_door_wide_banner_2.tscn" id="15_l7olw"]
-[ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="16_g20bk"]
-[ext_resource type="PackedScene" uid="uid://cmpusgs6psw8k" path="res://models used/key.tscn" id="17_r8bll"]
-[ext_resource type="Script" path="res://scenes/activationmachine.gd" id="18_jsvov"]
-[ext_resource type="Script" path="res://scenes/Panel.gd" id="19_8naec"]
+[ext_resource type="PackedScene" path="res://models used/meteor_detailed_2.tscn" id="16_g20bk"]
+[ext_resource type="Script" path="res://scripts/activationmachine.gd" id="17_afwig"]
+[ext_resource type="PackedScene" path="res://models used/key.tscn" id="17_r8bll"]
+[ext_resource type="Script" path="res://scripts/Panel.gd" id="18_fwt44"]
 [ext_resource type="Texture2D" uid="uid://cqjucxj0kl4up" path="res://keycard.fbm/stonebutton.png" id="20_0g28n"]
 [ext_resource type="Texture2D" uid="uid://yo3a50pql6iq" path="res://keycard.fbm/keycardimage.png" id="21_wkcw0"]
 
@@ -704,7 +704,7 @@ shape = SubResource("ConcavePolygonShape3D_7lmfo")
 
 [node name="keycardactivationmachine" type="Area3D" parent="." node_paths=PackedStringArray("activation_menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 12)
-script = ExtResource("18_jsvov")
+script = ExtResource("17_afwig")
 activation_menu = NodePath("activation_menu")
 player_path = NodePath("../player")
 
@@ -718,7 +718,7 @@ shape = SubResource("BoxShape3D_4n2fd")
 
 [node name="activation_menu" type="CanvasLayer" parent="keycardactivationmachine"]
 visible = false
-script = ExtResource("19_8naec")
+script = ExtResource("18_fwt44")
 
 [node name="Buttons" type="Panel" parent="keycardactivationmachine/activation_menu"]
 z_index = -1
