@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://df605kbn3wdud" path="res://models used/corridor_roof_2.tscn" id="13_nlbev"]
 [ext_resource type="PackedScene" uid="uid://bv4egda6y13ie" path="res://models used/corridor_wall_2.tscn" id="14_3u6n0"]
 [ext_resource type="PackedScene" uid="uid://o5ok5yfg0e4k" path="res://models used/wall_door_wide_banner_2.tscn" id="15_l7olw"]
-[ext_resource type="PackedScene" path="res://models used/meteor_detailed_2.tscn" id="16_g20bk"]
+[ext_resource type="PackedScene" uid="uid://d35t85agn2mqy" path="res://models used/meteor_detailed_2.tscn" id="16_g20bk"]
 [ext_resource type="Script" path="res://scripts/activationmachine.gd" id="17_afwig"]
-[ext_resource type="PackedScene" path="res://models used/key.tscn" id="17_r8bll"]
+[ext_resource type="PackedScene" uid="uid://bfxlacwwmdfw2" path="res://models used/key.tscn" id="17_r8bll"]
 [ext_resource type="Script" path="res://scripts/Panel.gd" id="18_fwt44"]
 [ext_resource type="Texture2D" uid="uid://cqjucxj0kl4up" path="res://keycard.fbm/stonebutton.png" id="20_0g28n"]
 [ext_resource type="Texture2D" uid="uid://yo3a50pql6iq" path="res://keycard.fbm/keycardimage.png" id="21_wkcw0"]
@@ -717,6 +717,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4n2fd")
 
 [node name="activation_menu" type="CanvasLayer" parent="keycardactivationmachine"]
+visible = false
 script = ExtResource("18_fwt44")
 
 [node name="Buttons" type="Panel" parent="keycardactivationmachine/activation_menu"]
@@ -774,10 +775,10 @@ position = Vector2(1006, 507)
 scale = Vector2(1.53934, 1.5934)
 texture = ExtResource("21_wkcw0")
 
-[node name="key" type="Node3D" parent="keycardactivationmachine"]
-transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -2.694, 0, 44.56)
+[node name="key" type="Node3D" parent="keycardactivationmachine/activation_menu"]
+transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -11.694, 1, 56.56)
 
-[node name="key2" parent="keycardactivationmachine/key" instance=ExtResource("17_r8bll")]
+[node name="key2" parent="keycardactivationmachine/activation_menu/key" instance=ExtResource("17_r8bll")]
 transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, 0, 0, 0)
 
 [connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_Timer_timeout"]
@@ -787,5 +788,5 @@ transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, 0, 0, 0)
 [connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button3" to="keycardactivationmachine/activation_menu" method="_on_Button3_pressed"]
 [connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button4" to="keycardactivationmachine/activation_menu" method="_on_Button4_pressed"]
 [connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button5" to="keycardactivationmachine/activation_menu" method="_on_Button5_pressed"]
-[connection signal="keycard_activated" from="keycardactivationmachine/key/key2" to="keycardactivationmachine" method="_exit_activation_menu"]
-[connection signal="picked_up" from="keycardactivationmachine/key/key2" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]
+[connection signal="keycard_activated" from="keycardactivationmachine/activation_menu/key/key2" to="keycardactivationmachine" method="_on_keycard_collected"]
+[connection signal="picked_up" from="keycardactivationmachine/activation_menu/key/key2" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]
