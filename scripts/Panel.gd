@@ -1,29 +1,33 @@
 extends CanvasLayer
 
-func check_activation_complete():
-	if activation_steps >= 5:
-		# Keycard is now activated
-		$keycardactivationmachine._exit_activation_menu()  # Close the menu
-		Global.keycard_activated = true  # Mark the keycard as activated in your global state
+@export var activation_machine: NodePath  # Reference to the activation machine script
+var machine: Node3D
 
-var activation_steps = 0
+# Called when the node enters the scene tree for the first time
+func _ready():
+	machine = get_node(activation_machine)  # Get the activation machine node
+	var buttons_node = get_node("Buttons")  # Get the buttons container
 
-func _on_Button1_pressed():
-	activation_steps += 1
-	check_activation_complete()
+	# Check if buttons node is valid
+	if buttons_node == null:
+		print("Buttons node not found!")
+	else:
+		# Connect all buttons to the _on_button_pressed function
+		for button in buttons_node.get_children():
+			if button is Button:
+				button.connect("pressed", Callable(self, "_on_button_pressed"))
 
-func _on_Button2_pressed():
-	activation_steps += 1
-	check_activation_complete()
+# Function called when a button is pressed
+func _on_button_pressed():
+	# Check if the activation machine has the method "check_activation_complete"
+	if machine.has_method("check_activation_complete"):
+		if machine.check_activation_complete():  # Check if activation is complete
+			_exit_activation_menu()  # Close the menu if complete
+	else:
+		print("The method 'check_activation_complete' is not found in the activation machine.")
 
-func _on_Button3_pressed():
-	activation_steps += 1
-	check_activation_complete()
-
-func _on_Button4_pressed():
-	activation_steps += 1
-	check_activation_complete()
-
-func _on_Button5_pressed():
-	activation_steps += 1
-	check_activation_complete()
+# Function to close the activation menu
+func _exit_activation_menu():
+	self.visible = false  # Hide the activation menu
+	get_tree().paused = false  # Resume the game
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Hide the mouse cursor if needed

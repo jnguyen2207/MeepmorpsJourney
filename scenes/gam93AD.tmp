@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://0dogdnxv1lt4"]
+[gd_scene load_steps=57 format=3 uid="uid://0dogdnxv1lt4"]
 
 [ext_resource type="Texture2D" uid="uid://cqt3whgu6rg61" path="res://space.webp" id="1_f2nt5"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_45fhe"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/activationmachine.gd" id="17_afwig"]
 [ext_resource type="PackedScene" uid="uid://bfxlacwwmdfw2" path="res://models used/key.tscn" id="17_r8bll"]
 [ext_resource type="Script" path="res://scripts/Panel.gd" id="18_fwt44"]
+[ext_resource type="Texture2D" uid="uid://cqjucxj0kl4up" path="res://keycard.fbm/stonebutton.png" id="20_0g28n"]
 [ext_resource type="Texture2D" uid="uid://yo3a50pql6iq" path="res://keycard.fbm/keycardimage.png" id="21_wkcw0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njnp3"]
@@ -716,59 +717,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4n2fd")
 
 [node name="activation_menu" type="CanvasLayer" parent="keycardactivationmachine"]
+visible = false
 script = ExtResource("18_fwt44")
-activation_machine = NodePath("..")
 
-[node name="Buttons" type="VBoxContainer" parent="keycardactivationmachine/activation_menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="keycardactivationmachine/activation_menu/Buttons"]
-position = Vector2(1059, 514)
-scale = Vector2(1.53934, 1.5934)
-texture = ExtResource("21_wkcw0")
+[node name="Buttons" type="Panel" parent="keycardactivationmachine/activation_menu"]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Button1" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 9
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.05
+top_level = true
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 223.0
+offset_right = 1681.0
+offset_bottom = 299.0
+action_mode = 0
+icon = ExtResource("20_0g28n")
 
 [node name="Button2" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 9
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.05
+top_level = true
+layout_mode = 0
+offset_left = 1578.0
+offset_top = 313.0
+offset_right = 1682.0
+offset_bottom = 389.0
+icon = ExtResource("20_0g28n")
 
 [node name="Button3" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 9
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.05
+top_level = true
+layout_mode = 0
+offset_left = 1579.0
+offset_top = 416.0
+offset_right = 1683.0
+offset_bottom = 492.0
+icon = ExtResource("20_0g28n")
 
 [node name="Button4" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 9
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.05
+top_level = true
+layout_mode = 0
+offset_left = 1578.0
+offset_top = 510.0
+offset_right = 1682.0
+offset_bottom = 586.0
+icon = ExtResource("20_0g28n")
 
 [node name="Button5" type="Button" parent="keycardactivationmachine/activation_menu/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 9
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.05
+top_level = true
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 600.0
+offset_right = 1681.0
+offset_bottom = 676.0
+icon = ExtResource("20_0g28n")
+
+[node name="Sprite2D" type="Sprite2D" parent="keycardactivationmachine/activation_menu/Buttons"]
+position = Vector2(1006, 507)
+scale = Vector2(1.53934, 1.5934)
+texture = ExtResource("21_wkcw0")
 
 [node name="key" type="Node3D" parent="keycardactivationmachine/activation_menu"]
 transform = Transform3D(1.29039, 0, 0, 0, 1.61299, 0, 0, 0, 1.54847, -11.694, 1, 56.56)
@@ -778,10 +784,10 @@ transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, 0, 0, -25.1862)
 
 [connection signal="timeout" from="player/head/Camera3D/CanvasLayer/Timer" to="player/head/Camera3D/CanvasLayer" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="keycardactivationmachine" to="keycardactivationmachine" method="_on_body_entered"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button1" to="keycardactivationmachine/activation_menu" method="_on_button_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button2" to="keycardactivationmachine/activation_menu" method="_on_button_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button3" to="keycardactivationmachine/activation_menu" method="_on_button_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button4" to="keycardactivationmachine/activation_menu" method="_on_button_pressed"]
-[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button5" to="keycardactivationmachine/activation_menu" method="_on_button_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button1" to="keycardactivationmachine/activation_menu" method="_on_Button1_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button2" to="keycardactivationmachine/activation_menu" method="_on_Button2_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button3" to="keycardactivationmachine/activation_menu" method="_on_Button3_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button4" to="keycardactivationmachine/activation_menu" method="_on_Button4_pressed"]
+[connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button5" to="keycardactivationmachine/activation_menu" method="_on_Button5_pressed"]
 [connection signal="keycard_activated" from="keycardactivationmachine/activation_menu/key/key2" to="keycardactivationmachine" method="_on_keycard_collected"]
 [connection signal="picked_up" from="keycardactivationmachine/activation_menu/key/key2" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]

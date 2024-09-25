@@ -81,3 +81,7 @@ func set_player_movement_enabled(enabled: bool):
 	self.set_physics_process(enabled)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if enabled else Input.MOUSE_MODE_VISIBLE)
 
+
+
+func _on_keycardactivationmachine_body_entered(body):
+	pass # Replace with function body.
