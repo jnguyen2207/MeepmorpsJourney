@@ -1,13 +1,13 @@
 extends CanvasLayer
 
 @export var activation_machine: NodePath  # Reference to the activation machine script
-var machine: Node3D
+var machine: Area3D
 
 # Called when the node enters the scene tree for the first time
 func _ready():
 	machine = get_node(activation_machine)  # Get the activation machine node
 	var buttons_node = get_node("Buttons")  # Get the buttons container
-
+	
 	# Check if buttons node is valid
 	if buttons_node == null:
 		print("Buttons node not found!")
@@ -29,5 +29,4 @@ func _on_button_pressed():
 # Function to close the activation menu
 func _exit_activation_menu():
 	self.visible = false  # Hide the activation menu
-	get_tree().paused = false  # Resume the game
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Hide the mouse cursor if needed
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED  # Hide the mouse cursor if needed
