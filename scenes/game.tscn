@@ -757,4 +757,4 @@ transform = Transform3D(2.341, 0, 0, 0, 2.341, 0, 0, 0, 2.34101, 0, 0, -25.1862)
 [connection signal="body_entered" from="keycardactivationmachine" to="keycardactivationmachine" method="_on_body_entered"]
 [connection signal="pressed" from="keycardactivationmachine/activation_menu/Buttons/Button1" to="keycardactivationmachine/activation_menu" method="_on_button_pressed"]
 [connection signal="keycard_activated" from="keycardactivationmachine/activation_menu/key/key2" to="keycardactivationmachine" method="_on_keycard_collected"]
-[connection signal="picked_up" from="keycardactivationmachine/activation_menu/key/key2" to="player/head/Camera3D/CanvasLayer" method="_on_keycard_picked_up"]
+[connection signal="picked_up" from="keycardactivationmachine/activation_menu/key/key2" to="player/head/Camera3D/CanvasLayer" method="_on_key_2_picked_up"]

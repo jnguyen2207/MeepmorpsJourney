@@ -39,9 +39,9 @@ func _on_body_entered(body):
 		# Emit signal for keycard being picked up
 		emit_signal("picked_up")
 		
-		# Activate the keycard and notify the activation machine
+		# Activate the keyard and notify the activation machine
 		activate_keycard()
-
+		
 		# Remove the keycard from the scene
 		get_parent().queue_free()
 
