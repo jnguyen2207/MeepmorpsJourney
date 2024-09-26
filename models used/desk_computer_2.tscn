@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://svkq1dage5gu"]
+
+[ext_resource type="PackedScene" uid="uid://knyt4lj8fssn" path="res://Kenney's Space Kit Models GLB/GLTF format/desk_computer.glb" id="1_it2qa"]
+
+[node name="desk_computer2" instance=ExtResource("1_it2qa")]
+
+[node name="desk_computer" parent="tmpParent" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
