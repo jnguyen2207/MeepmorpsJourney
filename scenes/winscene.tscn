@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgdv1xn55uw2r"]
+
+[ext_resource type="Texture2D" uid="uid://d22ncamr7bypp" path="res://models used/youwintextforgame.png" id="1_qc3tq"]
+
+[node name="winscene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("1_qc3tq")
