@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Global Scripts n Scenes/keycardchecker.gd"
-AudioManager="*res://Global Scripts n Scenes/audioManager.gd"
+Global="*res://index/Global Scripts n Scenes/keycardchecker.gd"
+AudioManager="*res://index/Global Scripts n Scenes/audioManager.gd"
 
 [display]
 
